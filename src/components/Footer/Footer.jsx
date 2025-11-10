@@ -34,7 +34,7 @@ const Footer = () => {
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
               <Link
-                href="/"
+                to="/"
                 color="inherit"
                 underline="hover"
                 sx={{ opacity: 0.8 }}

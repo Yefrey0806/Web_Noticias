@@ -1,18 +1,14 @@
-// Configuración de Cloudinary
-export const cloudinaryConfig = {
-  cloudName: "dvojtf3n9", // Reemplaza con tu Cloud Name
-  uploadPreset: "noticias_preset", // Crearemos este preset
-};
-
-// Función para subir imagen a Cloudinary
 export const uploadImageToCloudinary = async (file) => {
+  const cloudName = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
+  const uploadPreset = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET;
+
   const formData = new FormData();
   formData.append("file", file);
-  formData.append("upload_preset", cloudinaryConfig.uploadPreset);
+  formData.append("upload_preset", uploadPreset);
 
   try {
     const response = await fetch(
-      `https://api.cloudinary.com/v1_1/${cloudinaryConfig.cloudName}/image/upload`,
+      `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
       {
         method: "POST",
         body: formData,
@@ -20,7 +16,7 @@ export const uploadImageToCloudinary = async (file) => {
     );
 
     const data = await response.json();
-    return data.secure_url; // Retorna la URL de la imagen
+    return data.secure_url;
   } catch (error) {
     console.error("Error al subir imagen:", error);
     throw error;
