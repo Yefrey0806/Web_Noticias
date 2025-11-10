@@ -123,6 +123,15 @@ const App = () => {
                     </ProtectedRoute>
                   }
                 />
+                <Route
+                  path="/editor/secciones"
+                  element={
+                    <ProtectedRoute requiredRole="editor">
+                      <Sections />
+                    </ProtectedRoute>
+                  }
+                />
+
                 <Route path="*" element={<Navigate to="/" />} />
               </Routes>
             </Box>

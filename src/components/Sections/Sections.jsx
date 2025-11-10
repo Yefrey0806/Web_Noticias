@@ -58,24 +58,6 @@ const Sections = () => {
     window.location.reload();
   };
 
-  {
-    /*}
-
-  if (
-    user?.email !== "editor@correo.com" &&
-    user?.email !== "admin@correo.com"
-  ) {
-    return (
-      <Container maxWidth="md">
-        <Typography variant="h6" color="error" sx={{ mt: 4 }}>
-          No tienes permiso para administrar secciones
-        </Typography>
-      </Container>
-    );
-  }
-*/
-  }
-
   return (
     <Container maxWidth="md" sx={{ mt: 4 }}>
       <Button
